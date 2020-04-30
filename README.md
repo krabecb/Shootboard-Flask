@@ -1,1 +1,7 @@
-# SEI-Project-Three
+# SEI-Project-Three-Flask
+
+## Wireframes
+
+### Models
+
+![Imgur](https://imgur.com/KdYTCxl)
