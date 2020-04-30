@@ -3,6 +3,8 @@ import datetime
 
 from flask_login import UserMixin
 
+DATABASE = SqliteDatabase('project3.sqlite')
+
 
 
 
