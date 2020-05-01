@@ -5,6 +5,8 @@ from resources.users import users
 
 from resources.clients import clients
 
+from resources.sessions import sessions
+
 import models
 
 from flask_login import LoginManager
@@ -50,6 +52,7 @@ def unauthorized():
 
 app.register_blueprint(users, url_prefix='/api/users')
 app.register_blueprint(clients, url_prefix='/api/clients')
+app.register_blueprint(sessions, url_prefix='/api/sessions')
 
 if __name__ == '__main__':
 	models.initialize()

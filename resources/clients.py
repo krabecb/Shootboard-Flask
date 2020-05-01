@@ -17,16 +17,16 @@ clients = Blueprint('clients', 'clients')
 @clients.route('/', methods=['GET'])
 @login_required
 def clients_index():
-	curren_user_client_dicts = [model_to_dict(client) for client in current_user.clients]
+	current_user_client_dicts = [model_to_dict(client) for client in current_user.clients]
 
-	for client_dict in curren_user_client_dicts:
+	for client_dict in current_user_client_dicts:
 		client_dict['photographer'].pop('password')
 
-	print(curren_user_client_dicts)
+	print(current_user_client_dicts)
 
 	return jsonify({
-		'data': curren_user_client_dicts,
-		'message': f"Found {len(curren_user_client_dicts)} clients.",
+		'data': current_user_client_dicts,
+		'message': f"Found {len(current_user_client_dicts)} clients.",
 		'status': 200
 	}), 200
 
@@ -119,7 +119,7 @@ def update_client(id):
 @clients.route('/<id>', methods=['GET'])
 def show_client(id):
 	client = models.Client.get_by_id(id)
-	if current_user.is_authenticated:
+	if client.photographer.id == current_user.id:
 		client_dict = model_to_dict(client)
 		client_dict['photographer'].pop('password')
 		
@@ -128,3 +128,10 @@ def show_client(id):
 			message=f"Found client with id: {id}.",
 			status=200
 		), 200
+	else:
+
+		return jsonify(
+			data={ 'error': '404 not found' },
+			message="You do not have access to this information.",
+			status=404
+		), 404

@@ -26,12 +26,24 @@ class Client(Model):
 	class Meta:
 		database = DATABASE
 
+class Session(Model):
+	title = CharField()
+	date = DateTimeField()
+	time = TimeField()
+	location = CharField()
+	comments = TextField()
+	photographer = ForeignKeyField(User, backref='sessions')
+	client = ForeignKeyField(Client, backref='sessions')
+
+	class Meta:
+		database = DATABASE
+
 
 
 
 def initialize():
 	DATABASE.connect()
 
-	DATABASE.create_tables([User, Client], safe=True)
+	DATABASE.create_tables([User, Client, Session], safe=True)
 	print("Connected to DB and created tables if they didn't already exist.")
 	DATABASE.close()
