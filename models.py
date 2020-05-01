@@ -16,12 +16,22 @@ class User(UserMixin, Model):
 	class Meta:
 		database = DATABASE
 
+class Client(Model):
+	first_name = CharField()
+	last_name = CharField()
+	date_of_birth = DateField()
+	Location = CharField()
+	photographer = ForeignKeyField(User, backref='clients')
+
+	class Meta:
+		database = DATABASE
+
 
 
 
 def initialize():
 	DATABASE.connect()
 
-	DATABASE.create_tables([User], safe=True)
+	DATABASE.create_tables([User, Client], safe=True)
 	print("Connected to DB and created tables if they didn't already exist.")
 	DATABASE.close()
