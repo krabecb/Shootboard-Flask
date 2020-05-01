@@ -3,6 +3,8 @@ from flask import Flask, jsonify
 
 from resources.users import users
 
+from resources.clients import clients
+
 import models
 
 from flask_login import LoginManager
@@ -47,6 +49,7 @@ def unauthorized():
 
 
 app.register_blueprint(users, url_prefix='/api/users')
+app.register_blueprint(clients, url_prefix='/api/clients')
 
 if __name__ == '__main__':
 	models.initialize()

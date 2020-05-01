@@ -20,7 +20,7 @@ class Client(Model):
 	first_name = CharField()
 	last_name = CharField()
 	date_of_birth = DateField()
-	Location = CharField()
+	location = CharField()
 	photographer = ForeignKeyField(User, backref='clients')
 
 	class Meta:
