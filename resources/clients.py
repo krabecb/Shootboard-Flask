@@ -38,7 +38,7 @@ def create_client():
 		first_name=payload['first_name'],
 		last_name=payload['last_name'],
 		date_of_birth=payload['date_of_birth'],
-		location=payload['date_of_birth'],
+		location=payload['location'],
 		photographer=current_user.id
 	)
 

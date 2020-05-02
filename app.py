@@ -9,6 +9,8 @@ from resources.sessions import sessions
 
 import models
 
+from flask_cors import CORS
+
 from flask_login import LoginManager
 
 
@@ -46,6 +48,11 @@ def unauthorized():
 		message="You must be logged in to do that.",
 		status=401
 	), 401
+
+"""CORS"""
+CORS(users, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(clients, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(sessions, origins=['http://localhost:3000'], supports_credentials=True)
 
 
 
