@@ -33,6 +33,7 @@ class Session(Model):
 	location = CharField()
 	comments = TextField()
 	photographer = ForeignKeyField(User, backref='sessions')
+	client = ForeignKeyField(Client, backref='sessions')
 
 	class Meta:
 		database = DATABASE

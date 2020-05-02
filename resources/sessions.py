@@ -30,17 +30,21 @@ def sessions_index():
 		'status': 200
 	}), 200
 
-@sessions.route('/', methods=['POST'])
+@sessions.route('/<c>', methods=['POST']) #specifies endpoint of route
 @login_required
-def create_session():
+def create_session(c):
 	payload = request.get_json()
-	new_session = models.Session.create(
+
+	client_to_connect_to_session = models.Client.get_by_id(c)
+
+	new_session = models.Session.create( 
 		title=payload['title'],
 		date=payload['date'],
 		time=payload['time'],
 		location=payload['location'],
 		comments=payload['comments'],
-		photographer=current_user.id
+		photographer=current_user.id,
+		client=client_to_connect_to_session #query in database to find client that would become client in the session
 	)
 
 	session_dict = model_to_dict(new_session)
