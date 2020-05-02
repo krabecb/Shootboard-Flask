@@ -4,8 +4,8 @@
 
 ### Models
 
-![Imgur](https://i.imgur.com/KdYTCxl.jpg)
+![Imgur](https://i.imgur.com/QHPrGme.jpg)
 
 ### Routes
 
-![Imgur](https://i.imgur.com/BoNFkD8.jpg)
+![Imgur](https://i.imgur.com/oABxNK9.jpg)
