@@ -1,5 +1,5 @@
 """IMPORTS"""
-from flask import Flask, jsonify
+from flask import Flask, jsonify, g
 
 from resources.users import users
 
@@ -57,9 +57,11 @@ CORS(sessions, origins=['http://localhost:3000'], supports_credentials=True)
 
 
 
-app.register_blueprint(users, url_prefix='/api/users')
-app.register_blueprint(clients, url_prefix='/api/clients')
-app.register_blueprint(sessions, url_prefix='/api/sessions')
+app.register_blueprint(users, url_prefix='/api/users/')
+app.register_blueprint(clients, url_prefix='/api/clients/')
+app.register_blueprint(sessions, url_prefix='/api/sessions/')
+
+
 
 if __name__ == '__main__':
 	models.initialize()

@@ -28,8 +28,8 @@ class Client(Model):
 
 class Session(Model):
 	title = CharField()
-	date = DateTimeField()
-	time = TimeField()
+	date = DateField()
+	time = CharField()
 	location = CharField()
 	comments = TextField()
 	photographer = ForeignKeyField(User, backref='sessions')

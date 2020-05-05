@@ -95,7 +95,7 @@ def update_session(id):
 	if session_to_update.photographer.id == current_user.id:
 
 		if 'title' in payload:
-			session_to_update.title = paylod['title']
+			session_to_update.title = payload['title']
 		if 'date' in payload:
 			session_to_update.date = payload['date']
 		if 'time' in payload:

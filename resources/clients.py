@@ -96,7 +96,7 @@ def update_client(id):
 		if 'date_of_birth' in payload:
 			client_to_update.date_of_birth = payload['date_of_birth']
 		if 'location' in payload:
-			client_to_update.location = payload['date_of_birth']
+			client_to_update.location = payload['location']
 
 		client_to_update.save()
 		updated_client_dict = model_to_dict(client_to_update)
