@@ -52,9 +52,9 @@ def unauthorized():
 	), 401
 
 """CORS"""
-CORS(users, origins=['http://localhost:3000'], supports_credentials=True)
-CORS(clients, origins=['http://localhost:3000'], supports_credentials=True)
-CORS(sessions, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(users, origins=['http://localhost:3000', 'https://shootboard.herokuapp.com'], supports_credentials=True)
+CORS(clients, origins=['http://localhost:3000', 'https://shootboard.herokuapp.com'], supports_credentials=True)
+CORS(sessions, origins=['http://localhost:3000', 'https://shootboard.herokuapp.com'], supports_credentials=True)
 
 
 
